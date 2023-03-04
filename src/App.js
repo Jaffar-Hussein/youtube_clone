@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.css";
+import Navbar from "./components/Navbar";
+import Question1 from "./components/Question1";
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<div className='h-screen w-screen bg-gray-900 space-y-20'>
+			{/* <Navbar /> */}
+			<div class='inline-flex items-center justify-center w-full'>
+				<hr class='w-64 h-px my-8 bg-gray-200 border-0 dark:bg-gray-700' />
+				<span class='absolute px-3 font-medium text-gray-900 -translate-x-1/2 bg-white left-1/2 dark:text-white dark:bg-gray-900'>
+					♥️♥️♥️♥️♥️
+				</span>
+			</div>
+			<Question1 />
+      <div class='inline-flex items-center justify-center w-full'>
+				<hr class='w-64 h-px my-8 bg-gray-200 border-0 dark:bg-gray-700' />
+				<span class='absolute px-3 font-medium text-gray-900 -translate-x-1/2 bg-white left-1/2 dark:text-white dark:bg-gray-900'>
+					♥️♥️♥️♥️♥️
+				</span>
+			</div>
+		</div>
+	);
 }
 
 export default App;
