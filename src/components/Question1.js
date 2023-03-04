@@ -9,13 +9,15 @@ export default class Question1 extends Component {
 			pending: 0,
 		};
 	}
-	toggleHandler(name) {
-		const targetDo = this.state.todos.map((td) => {
-			if (td.name === name) {
-				td.status = td.status ? false : true;
+	toggleHandler(index) {
+		const targetDo = this.state.todos.map((td,id) => {
+			if (id === index) {
                 if(td.status){
                     td.status = false;
-                    td.pending = this.state.pending 
+                    this.state.pending += 1;
+                }else{
+                    td.status = true;
+                    this.state.pending -= 1;
                 }
 			}
 			return td;
@@ -78,7 +80,7 @@ export default class Question1 extends Component {
 							{this.state.todos.map((data,key) => (
 								<li
 									key={key}
-									className='font-serif hover:text-red-600 hover:line-through flex items-center space-x-3'
+									className={`font-serif hover:text-red-600 hover:line-through flex items-center space-x-3 ${data.status ? 'is-done' : ' '}`}
 									value={data.name}
 									name={data.name}
 									onClick={() => this.toggleHandler(key)}
