@@ -10,20 +10,17 @@ export default class Question1 extends Component {
 		};
 	}
 	toggleHandler(name) {
-		// console.log(this.state.todos);
 		const targetDo = this.state.todos.map((td) => {
-            // console.log(td);
 			if (td.name === name) {
-				// td.status = true;
-                // 9 > 3 ? "this" : "that"
-                td.status = td.status ? false : true;
+				td.status = td.status ? false : true;
+                if(td.status){
+                    
+                }
 			}
-            // console.log(td);
-            return td;
+			return td;
 		});
-		
-		this.setState({todos:targetDo});
-		// console.log(this.state.todos);
+
+		this.setState({ todos: targetDo,pending:this.state.pending - 1 });
 	}
 	handleSubmit = (e) => {
 		e.preventDefault();
@@ -32,7 +29,7 @@ export default class Question1 extends Component {
 			this.setState({
 				todos: [todoObject, ...this.state.todos],
 				total: (this.state.total += 1),
-				// total: (this.state.pending += 1),
+				pending: (this.state.pending += 1),
 			});
 		}
 
@@ -79,7 +76,9 @@ export default class Question1 extends Component {
 							{this.state.todos.map((data) => (
 								<li
 									key={data.name}
-									className={`font-serif hover:text-red-600 hover:line-through flex items-center space-x-3 ${data.status ? 'is-done' : ' '}`}
+									className={`font-serif hover:text-red-600 hover:line-through flex items-center space-x-3 ${
+										data.status ? "is-done" : " "
+									}`}
 									value={data.name}
 									name={data.name}
 									onClick={() => this.toggleHandler(data.name)}
