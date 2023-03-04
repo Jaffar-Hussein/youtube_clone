@@ -72,13 +72,11 @@ export default class Question1 extends Component {
 					</div>
 					{/* List to be iterated over */}
 					<div className='flex flex-col items-center '>
-						<ul class='list-disc text-xl list-inside  odd:text-emerald-600 even:text-sky-400 p-5 space-y-2'>
-							{this.state.todos.map((data) => (
+						<ul className='list-disc text-xl list-inside  odd:text-emerald-600 even:text-sky-400 p-5 space-y-2'>
+							{this.state.todos.map((data,key) => (
 								<li
-									key={data.name}
-									className={`font-serif hover:text-red-600 hover:line-through flex items-center space-x-3 ${
-										data.status ? "is-done" : " "
-									}`}
+									key={key}
+									className='font-serif hover:text-red-600 hover:line-through flex items-center space-x-3'
 									value={data.name}
 									name={data.name}
 									onClick={() => this.toggleHandler(data.name)}

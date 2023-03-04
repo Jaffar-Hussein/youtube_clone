@@ -6,15 +6,15 @@ function Navbar() {
 			{/* Search bar  */}
 			<div className='col-span-8 col-start-3 m-auto'>
 				<div>
-					<div class='relative z-0 flex w-[36vw]'>
+					<div className='relative z-0 flex w-[36vw]'>
 						<input
 							type='text'
 							id='example7'
-							class='block w-full bg-transparent rounded-3xl rounded-r-none px-5 border-gray-600 focus:ring-gray-100
+							className='block w-full bg-transparent rounded-3xl rounded-r-none px-5 border-gray-600 focus:ring-gray-100
                              focus:border-gray-200 focus:z-10'
 							placeholder='Search'
 						/>
-						<div class='inset-y-0 left-0 flex items-center rounded-3xl rounded-l-none border border-l-0 border-gray-600 bg-gray-500 px-2.5 text-gray-700 focus:ring-gray-100 focus:border-gray-20'>
+						<div className='inset-y-0 left-0 flex items-center rounded-3xl rounded-l-none border border-l-0 border-gray-600 bg-gray-500 px-2.5 text-gray-700 focus:ring-gray-100 focus:border-gray-20'>
 							<svg
 								xmlns='http://www.w3.org/2000/svg'
 								fill='none'
