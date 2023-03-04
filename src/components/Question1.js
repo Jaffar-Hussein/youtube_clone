@@ -5,16 +5,21 @@ export default class Question1 extends Component {
 		super(props);
 		this.state = {
 			todos: [],
-			total: this.state.todos.length,
+			total: 0,
 			pending: 0,
 		};
 	}
 	toggleHandler(name) {
-        console.log(this.state.todos)
-
-        const targetDo =  { name: name, status: true }
-        this.setState({todos:[...this.state.todos,targetDo],pending:this.state.pending - 1});
-        console.log(this.state.todos)
+		console.log(this.state.todos);
+		const targetDo = this.state.todos.map((td) => {
+			if (td.name === name) {
+				td.status = true;
+			}
+            return td;
+		});
+		
+		this.setState({todos:targetDo});
+		console.log(this.state.todos);
 	}
 	handleSubmit = (e) => {
 		e.preventDefault();
@@ -24,7 +29,6 @@ export default class Question1 extends Component {
 				todos: [todoObject, ...this.state.todos],
 				total: (this.state.total += 1),
 				// total: (this.state.pending += 1),
-
 			});
 		}
 
@@ -73,7 +77,7 @@ export default class Question1 extends Component {
 									key={data.name}
 									className='font-serif hover:text-red-600 hover:line-through flex items-center space-x-3'
 									value={data.name}
-                                    name={data.name}
+									name={data.name}
 									onClick={() => this.toggleHandler(data.name)}
 								>
 									<svg
