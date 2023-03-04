@@ -1,4 +1,5 @@
 import "./App.css";
+import React from "react";
 import Navbar from "./components/Navbar";
 import Question1 from "./components/Question1";
 function App() {

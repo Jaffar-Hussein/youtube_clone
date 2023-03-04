@@ -1,3 +1,4 @@
+import React from "react";
 function Navbar() {
 	return (
 		<div className='grid grid-cols-1 md:grid-cols-12 w-screen h-14'>

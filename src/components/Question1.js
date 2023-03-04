@@ -1,17 +1,21 @@
-import { Component } from "react";
+import React, { Component } from "react";
 
 export default class Question1 extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			todos: [],
-			total: 0,
+			total: this.state.todos.length,
 			pending: 0,
 		};
 	}
-	//   addTodo = () => {
+	toggleHandler(name) {
+        console.log(this.state.todos)
 
-	//   }
+        const targetDo =  { name: name, status: true }
+        this.setState({todos:[...this.state.todos,targetDo],pending:this.state.pending - 1});
+        console.log(this.state.todos)
+	}
 	handleSubmit = (e) => {
 		e.preventDefault();
 		if (e.target.todo.value) {
@@ -19,10 +23,12 @@ export default class Question1 extends Component {
 			this.setState({
 				todos: [todoObject, ...this.state.todos],
 				total: (this.state.total += 1),
+				// total: (this.state.pending += 1),
+
 			});
 		}
 
-		console.log(this.state.todos);
+		// console.log(this.state.todos);
 	};
 	render() {
 		return (
@@ -63,7 +69,13 @@ export default class Question1 extends Component {
 					<div className='flex flex-col items-center '>
 						<ul class='list-disc text-xl list-inside  odd:text-emerald-600 even:text-sky-400 p-5 space-y-2'>
 							{this.state.todos.map((data) => (
-								<li key={data.name} className='flex items-center space-x-3'>
+								<li
+									key={data.name}
+									className='font-serif hover:text-red-600 hover:line-through flex items-center space-x-3'
+									value={data.name}
+                                    name={data.name}
+									onClick={() => this.toggleHandler(data.name)}
+								>
 									<svg
 										xmlns='http://www.w3.org/2000/svg'
 										viewBox='0 0 24 24'
