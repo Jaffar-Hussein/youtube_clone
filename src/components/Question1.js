@@ -4,7 +4,7 @@ export default class Question1 extends Component {
     constructor(props) {
         super(props);
         this.state = {
-          todos: [],
+          todos: '',
           total: 0,
           pending: 0,
         };
@@ -12,10 +12,10 @@ export default class Question1 extends Component {
     //   addTodo = () => {
 
     //   }
-    //   handleSubmit = (e) => {
-    //     e.preventDefault();
-    //     console.log(e.target.value);
-    //   };
+      handleSubmit = (e) => {
+        e.preventDefault();
+        this.setState({todos:e.target.todo.value});
+      };
 	render() {
 		return (
 			<>
@@ -48,7 +48,7 @@ export default class Question1 extends Component {
                     {/* List to be iterated over */}
 					<ul class='list-disc text-emerald-600 flex flex-col items-center p-5'>
 						<li>
-							{/* {this.state.todo.name} */}
+							{this.state.todos}
 						</li>
                         <li>
 							Go to the beach
