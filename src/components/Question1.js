@@ -10,16 +10,20 @@ export default class Question1 extends Component {
 		};
 	}
 	toggleHandler(name) {
-		console.log(this.state.todos);
+		// console.log(this.state.todos);
 		const targetDo = this.state.todos.map((td) => {
+            // console.log(td);
 			if (td.name === name) {
-				td.status = true;
+				// td.status = true;
+                // 9 > 3 ? "this" : "that"
+                td.status = td.status ? false : true;
 			}
+            // console.log(td);
             return td;
 		});
 		
 		this.setState({todos:targetDo});
-		console.log(this.state.todos);
+		// console.log(this.state.todos);
 	}
 	handleSubmit = (e) => {
 		e.preventDefault();
@@ -32,7 +36,7 @@ export default class Question1 extends Component {
 			});
 		}
 
-		// console.log(this.state.todos);
+		console.log(this.state.todos);
 	};
 	render() {
 		return (
@@ -75,7 +79,7 @@ export default class Question1 extends Component {
 							{this.state.todos.map((data) => (
 								<li
 									key={data.name}
-									className='font-serif hover:text-red-600 hover:line-through flex items-center space-x-3'
+									className={`font-serif hover:text-red-600 hover:line-through flex items-center space-x-3 ${data.status ? 'is-done' : ' '}`}
 									value={data.name}
 									name={data.name}
 									onClick={() => this.toggleHandler(data.name)}
