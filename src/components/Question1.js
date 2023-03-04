@@ -9,18 +9,20 @@ export default class Question1 extends Component {
 			pending: 0,
 		};
 	}
-	toggleHandler(name) {
-		const targetDo = this.state.todos.map((td) => {
-			if (td.name === name) {
-				td.status = td.status ? false : true;
-                if(td.status){
-                    
-                }
+	toggleHandler(index) {
+		// console.log(this.state.todos);
+		const targetDo = this.state.todos.map((td,id) => {
+            // console.log(td);
+			if (id === index) {
+				// td.status = true;
+                // 9 > 3 ? "this" : "that"
+                td.status = td.status ? false : true;
 			}
 			return td;
 		});
-
-		this.setState({ todos: targetDo,pending:this.state.pending - 1 });
+		
+		this.setState({todos:targetDo});
+		console.log(this.state.todos);
 	}
 	handleSubmit = (e) => {
 		e.preventDefault();
@@ -79,7 +81,7 @@ export default class Question1 extends Component {
 									className='font-serif hover:text-red-600 hover:line-through flex items-center space-x-3'
 									value={data.name}
 									name={data.name}
-									onClick={() => this.toggleHandler(data.name)}
+									onClick={() => this.toggleHandler(key)}
 								>
 									<svg
 										xmlns='http://www.w3.org/2000/svg'
