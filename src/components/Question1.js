@@ -14,7 +14,8 @@ export default class Question1 extends Component {
 			if (td.name === name) {
 				td.status = td.status ? false : true;
                 if(td.status){
-                    
+                    td.status = false;
+                    td.pending = this.state.pending 
                 }
 			}
 			return td;
