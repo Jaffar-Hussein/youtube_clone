@@ -4,7 +4,7 @@ export default class Question1 extends Component {
     constructor(props) {
         super(props);
         this.state = {
-          todos: '',
+          todos: [],
           total: 0,
           pending: 0,
         };
@@ -14,7 +14,9 @@ export default class Question1 extends Component {
     //   }
       handleSubmit = (e) => {
         e.preventDefault();
-        this.setState({todos:e.target.todo.value});
+        const todoObject = {name: e.target.todo.value,status: false}
+        this.setState({todos:[todoObject,...this.state.todos]});
+        console.log(this.state.todos);
       };
 	render() {
 		return (
@@ -46,9 +48,9 @@ export default class Question1 extends Component {
 
                     <div className="text-xl text-center pt-5  text-emerald-600  "> <span className="text-sky-400">0</span> remaining out of <span className="text-sky-400">5</span></div>
                     {/* List to be iterated over */}
-					<ul class='list-disc text-emerald-600 flex flex-col items-center p-5'>
+					<ul class='list-disc text-base text-emerald-600 flex flex-col items-center p-5'>
 						<li>
-							{this.state.todos}
+							{/* {this.state.todos} */}
 						</li>
                         <li>
 							Go to the beach
